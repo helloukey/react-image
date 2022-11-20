@@ -1,17 +1,29 @@
 {
   "name": "@kunalukey/react-image",
-  "version": "1.0.0",
+  "version": "1.0.4",
+  "private": false,
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
   "description": "Lightweight react component to lazy load images.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "transpile": "rm -rf main && mkdir main &&  babel LazyImage.js -d main --copy-files"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/helloukey/react-image.git"
   },
   "keywords": [
-    "react lazy load, lazy load react, lazy load image, react lazy load image, react-lazy-load, react-lazy-load-component, lazy-load-react, react, react-component, lazyload, lazyloading, lazy-loading"
+    "react-image",
+    "reactlazy",
+    "react-component",
+    "lazyload",
+    "lazyloading",
+    "lazy-loading",
+    "lazyload-images"
   ],
   "author": "Kunal Ukey",
   "license": "ISC",
@@ -22,5 +34,9 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/preset-react": "^7.18.6"
   }
 }

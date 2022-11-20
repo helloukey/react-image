@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 const LazyImage = ({
   placeholderSrc,
   placeholderClassName,
@@ -7,16 +6,15 @@ const LazyImage = ({
   src,
   alt,
   className,
-  style,
+  style
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [view, setView] = useState("");
   const placeholderRef = useRef();
   const imageRef = useRef();
-
   useEffect(() => {
     if (document.readyState === "complete") {
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
           setView(src);
           observer.unobserve(placeholderRef.current);
@@ -27,28 +25,19 @@ const LazyImage = ({
       }
     }
   }, [src]);
-
-  return (
-    <>
-      {isLoading && (
-        <img
-          src={placeholderSrc}
-          alt=""
-          className={placeholderClassName}
-          style={placeholderStyle}
-          ref={placeholderRef}
-        />
-      )}
-      <img
-        src={view}
-        alt={alt}
-        className={isLoading ? "hidden" : className}
-        onLoad={() => setIsLoading(false)}
-        style={style}
-        ref={imageRef}
-      />
-    </>
-  );
+  return /*#__PURE__*/React.createElement(React.Fragment, null, isLoading && /*#__PURE__*/React.createElement("img", {
+    src: placeholderSrc,
+    alt: "",
+    className: placeholderClassName,
+    style: placeholderStyle,
+    ref: placeholderRef
+  }), /*#__PURE__*/React.createElement("img", {
+    src: view,
+    alt: alt,
+    className: isLoading ? "hidden" : className,
+    onLoad: () => setIsLoading(false),
+    style: style,
+    ref: imageRef
+  }));
 };
-
 export default LazyImage;
