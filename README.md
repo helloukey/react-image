@@ -1,70 +1,69 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React-Image 🖼
 
-## Available Scripts
+Lightweight React Component To Lazy Load Images.
 
-In the project directory, you can run:
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@kunalukey/react-image?style=for-the-badge)](https://bundlephobia.com/package/@kunalukey/react-image)
+[![license](https://img.shields.io/github/license/helloukey/react-image?style=for-the-badge)](LICENSE)
+[![npm release](https://img.shields.io/npm/v/@kunalukey/react-image?color=orange&style=for-the-badge)](https://www.npmjs.com/package/@kunalukey/react-image)
+[![zero dependency](https://img.shields.io/badge/dependencies-0-success?style=for-the-badge)](package.json)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Super Lightweight (Less than **1KB**) 🔥 
+- Easy Setup ⚙
+- Easy Customization ⛏
+- Zero Dependencies! 🤯
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Install **React-Image** with npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+  npm install @kunalukey/react-image
+```
 
-### `npm run build`
+## Usage/Examples
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React 16.8.0 and higher is required.
+- You should have a placeholder image saved locally in your project. You can create one and download it from **[HERE](https://placeholderimage.dev/)**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```javascript
+import { LazyImage } from "@kunalukey/react-image";
+import placeholderImage from "../assets/placeholder.png";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const MyComponent = () => {
 
-### `npm run eject`
+  return (
+    <div>
+          <LazyImage
+            placeholderSrc={placeholderImage}
+            placeholderStyle={{ width: "100%" }}
+            placeholderClassName="placeholderClassName"
+            src="https://source.unsplash.com/random/1920x1080"
+			alt="my-image"
+			className="imageClassName"
+            style={{ width: "100%" }}
+          />
+    </div>
+  );
+};
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+export default MyComponent;
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Props
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Props                | Required | Description                                                 |
+|----------------------|----------|-------------------------------------------------------------|
+| placeholderSrc       | **true** | Placeholder image src (locally saved image is recommended). |
+| placeholderClassName | -        | className for placeholder image.                            |
+| placeholderStyle     | -        | style for placeholder image.                                |
+| src                  | **true** | src for an actual image.                                    |
+| alt                  | -        | alt tag for an actual image.                                |
+| className            | -        | className for an actual image.                              |
+| style                | -        | style for an actual image.                                  |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![license](https://img.shields.io/github/license/helloukey/react-image?style=for-the-badge)](LICENSE)
