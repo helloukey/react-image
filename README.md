@@ -41,8 +41,8 @@ const MyComponent = () => {
             placeholderStyle={{ width: "100%" }}
             placeholderClassName="placeholderClassName"
             src="https://source.unsplash.com/random/1920x1080"
-			alt="my-image"
-			className="imageClassName"
+            alt="my-image"
+            className="imageClassName"
             style={{ width: "100%" }}
           />
     </div>
