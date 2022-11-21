@@ -9,6 +9,7 @@ const LazyImage = ({
   style
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isPlaceholder, setIsPlaceholder] = useState(false);
   const [view, setView] = useState("");
   const placeholderRef = useRef();
   const imageRef = useRef();
@@ -20,17 +21,18 @@ const LazyImage = ({
           observer.unobserve(placeholderRef.current);
         }
       });
-      if (placeholderRef && placeholderRef.current) {
+      if (placeholderRef && placeholderRef.current && isPlaceholder) {
         observer.observe(placeholderRef.current);
       }
     }
-  }, [src]);
+  }, [src, isPlaceholder]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, isLoading && /*#__PURE__*/React.createElement("img", {
     src: placeholderSrc,
     alt: "",
     className: placeholderClassName,
     style: placeholderStyle,
-    ref: placeholderRef
+    ref: placeholderRef,
+    onLoad: () => setIsPlaceholder(true)
   }), /*#__PURE__*/React.createElement("img", {
     src: view,
     alt: alt,

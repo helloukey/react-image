@@ -10,6 +10,7 @@ const LazyImage = ({
   style,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isPlaceholder, setIsPlaceholder] = useState(false);
   const [view, setView] = useState("");
   const placeholderRef = useRef();
   const imageRef = useRef();
@@ -22,11 +23,11 @@ const LazyImage = ({
           observer.unobserve(placeholderRef.current);
         }
       });
-      if (placeholderRef && placeholderRef.current) {
+      if (placeholderRef && placeholderRef.current && isPlaceholder) {
         observer.observe(placeholderRef.current);
       }
     }
-  }, [src]);
+  }, [src, isPlaceholder]);
 
   return (
     <>
@@ -37,6 +38,7 @@ const LazyImage = ({
           className={placeholderClassName}
           style={placeholderStyle}
           ref={placeholderRef}
+          onLoad={() => setIsPlaceholder(true)}
         />
       )}
       <img
