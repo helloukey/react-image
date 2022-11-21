@@ -34,9 +34,11 @@ const LazyImage = ({
   }), /*#__PURE__*/React.createElement("img", {
     src: view,
     alt: alt,
-    className: isLoading ? "hidden" : className,
+    className: className,
     onLoad: () => setIsLoading(false),
-    style: style,
+    style: isLoading ? {
+      display: "none"
+    } : style,
     ref: imageRef
   }));
 };
